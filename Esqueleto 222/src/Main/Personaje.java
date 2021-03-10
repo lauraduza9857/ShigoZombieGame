@@ -12,6 +12,7 @@ public class Personaje {
 	private int rad = 50;
 	private PApplet app;
 	private ArrayList<Bullet> bullets;
+	private int lives = 3;
 
 	public Personaje(PApplet app, int x, int y) {
 		// TODO Auto-generated constructor stub}
@@ -59,13 +60,13 @@ public class Personaje {
 		bullets.add(new Bullet(app,x,y));
 	}
 
-	public void evaluateCollisionBullet(ArrayList<Enemy> enemies) {
+	public void evaluateCollisionBullet(ArrayList<Enemigo> enemies) {
 
 		for (int i = 0; i < enemies.size(); i++) {
-			Enemy e = enemies.get(i);
+			Enemigo e = enemies.get(i);
 			for (int j = 0; j < bullets.size(); j++) {
 				Bullet b = bullets.get(j);
-				if (app.dist(e.getX(), e.getY(), b.getX(), b.getY())< e.getRad()/2) {
+				if (app.dist(e.getX(), e.getY(), b.getX(), b.getY())< rad) {
 					bullets.remove(j);
 					e.losingLives();
 					return;
@@ -75,10 +76,23 @@ public class Personaje {
 		
 	}
 
-	public void evaluateCollisionCharacter(int ex, int ey) {
-
+	public void evaluateCollisionCharacter(ArrayList<Enemigo> enemies) {
+		for (int i = 0; i < enemies.size(); i++) {
+			Enemigo e = enemies.get(i);
+				if (app.dist(e.getX(), e.getY(), x,y)< rad) {
+					lives -=1;
+					enemies.remove(i);
+				}
+		}
 	}
-	
-	
+
+	public int getLives() {
+		return lives;
+	}
+
+	public void setLives(int lives) {
+		this.lives = lives;
+	}
+			
 
 }

@@ -39,5 +39,9 @@ public class Main extends PApplet {
 	public void keyReleased() {
 		log.keyboardReleased();
 	}
+	
+	public void mouseReleased() {
+		log.mouseR();
+	}
 
 }
