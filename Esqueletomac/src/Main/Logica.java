@@ -3,10 +3,12 @@ package Main;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Logica {
 
 	// Variables
+	PImage Play;
 	private PApplet app;
 	private Personaje personaje;
 	private ArrayList<Enemigo> enemies;
@@ -25,14 +27,18 @@ public class Logica {
 		numeroDeEnemigos2 = 0;
 		enemigosAsesinados = 0;
 		tiempo = "0";
+		Play = app.loadImage("Play1.png");
 	}
 
 	public void show() {
 
 		switch (pantalla) {
 		case 0:
-			app.background(0);
-			app.rect(app.width / 2, app.height - 150, app.width / 4, app.height / 7);
+		
+			app.image(Play, 600, 349);
+			
+			//app.background(0);
+			//app.rect(app.width / 2, app.height - 150, app.width / 4, app.height / 7);
 			break;
 
 		case 1:

@@ -1,19 +1,30 @@
 package Main;
+import processing.core.PApplet;
+import processing.core.PImage;
+
+import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class Enemigo2 extends Enemigo {
 
-	public Enemigo2(PApplet app) {
+public class Enemigo1 extends Enemigo {
+	
+	PImage Zombie1;
+	
+	public Enemigo1(PApplet app) {
 		// TODO Auto-generated constructor stub}
 		super(app);
-		vel =5;
-		lives= 5; 
+		vel = 2;
+		lives= 3; 
+		Zombie1 = app.loadImage("Zombie1.png");
 	}
 
 	public void show() {
-		app.fill(0);
-		app.rect(x, y, 50, 50);
+		
+		app.image(Zombie1, x, y);
+		
+		//app.fill(255,0,0);//
+		//app.rect(x, y, 50, 50);//
 	}
 
 	public int getLives() {
@@ -74,5 +85,4 @@ public class Enemigo2 extends Enemigo {
 	public void setAlive(boolean isAlive) {
 		this.isAlive = isAlive;
 	}
-
 }
