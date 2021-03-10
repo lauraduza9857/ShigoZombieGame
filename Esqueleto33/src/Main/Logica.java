@@ -9,6 +9,7 @@ public class Logica {
 
 	// Variables
 	PImage Play;
+	PImage Instruction;
 	private PApplet app;
 	private Personaje personaje;
 	private ArrayList<Enemigo> enemies;
@@ -28,6 +29,7 @@ public class Logica {
 		enemigosAsesinados = 0;
 		tiempo = "0";
 		Play = app.loadImage("Play1.png");
+		Instruction = app.loadImage("Instrucciones.png");
 	}
 
 	public void show() {
@@ -42,8 +44,11 @@ public class Logica {
 			break;
 
 		case 1:
-			app.background(0, 0, 255);
-			app.rect(app.width / 2, app.height - 150, app.width / 4, app.height / 7);
+			
+			app.image(Instruction, 600, 349);
+			
+			//app.background(0, 0, 255);
+			//app.rect(app.width / 2, app.height - 150, app.width / 4, app.height / 7);
 			break;
 
 		case 2:
